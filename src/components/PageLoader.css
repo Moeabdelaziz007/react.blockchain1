@@ -1,0 +1,405 @@
+/* Page Loader Styles - Crypto Theme */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0A2342 0%, #1a365d 50%, #2d3748 100%);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+  overflow: hidden;
+}
+
+/* Crypto Background */
+.crypto-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.blockchain-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 245, 212, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(0, 168, 107, 0.05) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 30%, rgba(0, 245, 212, 0.02) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(255, 215, 0, 0.02) 50%, transparent 70%);
+  animation: patternFloat 30s ease-in-out infinite;
+}
+
+.blockchain-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 245, 212, 0.03) 2px,
+      rgba(0, 245, 212, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 215, 0, 0.03) 2px,
+      rgba(255, 215, 0, 0.03) 4px
+    );
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
+
+.floating-crypto {
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(255, 215, 0, 0.6);
+  animation: floatCrypto 6s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.floating-crypto:nth-child(even) {
+  color: rgba(0, 245, 212, 0.6);
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+  animation-duration: 8s;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Loader Icon */
+.loader-icon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-spinner {
+  width: 100%;
+  height: 100%;
+  border: 4px solid rgba(0, 245, 212, 0.2);
+  border-top: 4px solid #00F5D4;
+  border-right: 4px solid #FFD700;
+  border-bottom: 4px solid #00A86B;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.loader-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00F5D4, #FFD700);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: pulse 3s infinite;
+}
+
+.crypto-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.crypto-symbol {
+  font-size: 2rem;
+  color: #FFD700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  animation: cryptoGlow 2s ease-in-out infinite;
+}
+
+/* Loader Text */
+.loader-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.dot {
+  animation: dotPulse 1.4s infinite;
+  opacity: 0.3;
+  color: #00F5D4;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Progress Bar */
+.loader-progress {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 245, 212, 0.3);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00F5D4, #FFD700, #00A86B);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.progress-text {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  color: #00F5D4;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Loader Message */
+.loader-message {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  text-align: center;
+  min-height: 20px;
+  animation: messageFade 0.5s ease;
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.1;
+  }
+}
+
+@keyframes cryptoGlow {
+  0%, 100% {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes floatCrypto {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateY(-15px) rotate(2deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes patternFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes dotPulse {
+  0%, 80%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes messageFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loader-container {
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 350px;
+  }
+  
+  .loader-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .loader-text {
+    font-size: 1.1rem;
+  }
+  
+  .floating-crypto {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-container {
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 300px;
+  }
+  
+  .loader-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .loader-text {
+    font-size: 1rem;
+  }
+  
+  .loader-progress {
+    height: 6px;
+  }
+  
+  .floating-crypto {
+    font-size: 1.2rem;
+  }
+  
+  .crypto-symbol {
+    font-size: 1.5rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .loader-spinner,
+  .loader-pulse,
+  .dot,
+  .progress-bar::after,
+  .floating-crypto,
+  .blockchain-pattern,
+  .crypto-symbol {
+    animation: none;
+  }
+  
+  .progress-bar {
+    transition: none;
+  }
+}
