@@ -219,21 +219,6 @@ The application includes:
 - Error reporting
 - Usage analytics
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-
-## 🙏 Acknowledgments
-
-- React.js team for the amazing framework
-- Bootstrap for the responsive CSS framework
-- Font Awesome for the icons
-- Unsplash for the beautiful images
 
 ---
 
